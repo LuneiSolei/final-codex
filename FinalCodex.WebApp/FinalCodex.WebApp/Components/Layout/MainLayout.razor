@@ -1,0 +1,26 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudGrid>
+    <MudItem>
+        <MudPaper Width="320px">
+            <MudNavMenu Class="mud-width-full" Variant="Variant.Filled" Color="Color.Dark">
+                <MudNavLink>Test</MudNavLink>
+                <MudNavLink>Other Thing</MudNavLink>
+            </MudNavMenu>
+        </MudPaper>
+    </MudItem>
+    <MudItem>
+        @Body
+    </MudItem>
+</MudGrid>
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div>
