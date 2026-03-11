@@ -2,9 +2,15 @@
     "name": "FinalCodex DevContainer",
     "image": "mcr.microsoft.com/devcontainers/dotnet",
     "forwardPorts": [8443],
+    "initializeCommand": "gpg --export > /tmp/pubkeys.gpg",
+    "postCreateCommand": "gpg --import /tmp/pubkeys.gpg && rm /tmp/pubkeys.gpg",
     "postAttachCommand": "dotnet restore",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,Z",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,options=Z",
+    "mounts": [
+        "source=${localEnv:XDG_RUNTIME_DIR}/gnupg/S.gpg-agent,target=${localEnv:XDG_RUNTIME_DIR}/gnupg/S.gpg-agent,type=bind,options=z",
+        "source=/tmp/pubkeys.gpg,target=/tmp/pubkeys.gpg,type=bind"
+    ],
     "runArgs": [
         "--userns=keep-id:uid=1000,gid=1000"
     ],
