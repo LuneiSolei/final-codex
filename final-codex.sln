@@ -2,9 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalCodex.Shared", "FinalCodex.Shared\FinalCodex.Shared.csproj", "{BA5656CC-E722-4FE8-BA29-F616EB3FA89F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalCodex.WebApp", "FinalCodex.WebApp\FinalCodex.WebApp\FinalCodex.WebApp.csproj", "{3261E9C7-3CA4-4FA7-BE7C-AB057955D494}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalCodex.WebApp.Client", "FinalCodex.WebApp\FinalCodex.WebApp.Client\FinalCodex.WebApp.Client.csproj", "{61827FBA-D5B1-45FA-A81E-528D5EFBDFF3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalCodex.WebApp", "FinalCodex.WebApp\FinalCodex.WebApp.csproj", "{A1FA5680-AB33-4C43-95FC-4D848F8E46D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,13 +14,9 @@ Global
 		{BA5656CC-E722-4FE8-BA29-F616EB3FA89F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA5656CC-E722-4FE8-BA29-F616EB3FA89F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA5656CC-E722-4FE8-BA29-F616EB3FA89F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3261E9C7-3CA4-4FA7-BE7C-AB057955D494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3261E9C7-3CA4-4FA7-BE7C-AB057955D494}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3261E9C7-3CA4-4FA7-BE7C-AB057955D494}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3261E9C7-3CA4-4FA7-BE7C-AB057955D494}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61827FBA-D5B1-45FA-A81E-528D5EFBDFF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61827FBA-D5B1-45FA-A81E-528D5EFBDFF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61827FBA-D5B1-45FA-A81E-528D5EFBDFF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61827FBA-D5B1-45FA-A81E-528D5EFBDFF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1FA5680-AB33-4C43-95FC-4D848F8E46D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1FA5680-AB33-4C43-95FC-4D848F8E46D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1FA5680-AB33-4C43-95FC-4D848F8E46D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1FA5680-AB33-4C43-95FC-4D848F8E46D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

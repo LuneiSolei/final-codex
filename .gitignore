@@ -5,3 +5,7 @@ riderModule.iml
 /_ReSharper.Caches/
 .nuget/
 tmp/
+
+# Environment Variables
+.env
+.env.*

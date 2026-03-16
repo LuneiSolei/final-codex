@@ -1,17 +1,21 @@
 {
     "name": "FinalCodex DevContainer",
-    "image": "mcr.microsoft.com/devcontainers/dotnet",
-    "forwardPorts": [8443],
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "forwardPorts": [8080, 8443],
     "remoteUser": "vscode",
-    "initializeCommand": "sh .devcontainer/initializeCommands.sh ${localWorkspaceFolder}",
-    "postCreateCommand": "sh .devcontainer/postCreateCommands.sh ${localWorkspaceFolderBasename}",
+    "initializeCommand": "sh .devcontainer/linux-podman/initializeCommands.sh ${localWorkspaceFolder}",
+    "postCreateCommand": "sh .devcontainer/linux-podman/postCreateCommands.sh ${localWorkspaceFolderBasename}",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,options=Z",
     "mounts": [
         "source=${localEnv:XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.extra,target=/home/vscode/.gnupg/S.gpg-agent,type=bind"
     ],
     "runArgs": [
-        "--userns=keep-id:uid=1000,gid=1000"
+        "--userns=keep-id:uid=1000,gid=1000",
+        "--security-opt",
+        "label=disable"
     ],
     "remoteEnv": {
         "XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}"

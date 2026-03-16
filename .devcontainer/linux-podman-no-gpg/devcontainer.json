@@ -1,0 +1,23 @@
+{
+    "name": "FinalCodex DevContainer",
+    "image": "mcr.microsoft.com/devcontainers/dotnet",
+    "forwardPorts": [8443],
+    "remoteUser": "vscode",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind,options=Z",
+    "runArgs": [
+        "--userns=keep-id:uid=1000,gid=1000",
+        "--security-opt",
+        "label=disable"
+    ],
+    "remoteEnv": {
+        "XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}"
+    },
+    "customizations": {
+        "jetbrains": {
+            "settings": {
+                "Git4Idea:app:Git-Application-Settings.use_credential_helper": true,
+            }
+        }
+    }
+}
