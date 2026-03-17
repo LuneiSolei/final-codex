@@ -1,0 +1,10 @@
+@page "/search"
+@using FinalCodex.Shared
+@using MudBlazor
+@inject AppState AppState
+
+<MudTextField @bind-Value="TextValue" Underline="false" Variant="Variant.Filled"></MudTextField>
+
+@code {
+    public string TextValue { get; set; }
+}
