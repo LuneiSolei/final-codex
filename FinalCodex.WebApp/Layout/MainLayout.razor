@@ -17,10 +17,9 @@
         <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit"/>
     </MudAppBar>
     
-    <MudDrawer @bind-Open="@AppState.IsNavMenuOpen" Variant="DrawerVariant.Mini" OpenMiniOnHover="true" 
-               ClipMode="DrawerClipMode.Always">
+    <MudDrawer @bind-Open="@AppState.IsNavMenuOpen" Variant="DrawerVariant.Mini" ClipMode="DrawerClipMode.Always">
         <MudDrawerHeader>
-            <MudText Typo="Typo.h6">FinalCodex</MudText>
+            <MudIconButton Edge="Edge.Start" Size="Size.Large" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" OnClick="@(AppState.ToggleNavMenu)" />
         </MudDrawerHeader>
         <MudNavMenu>
             <MudNavLink Href="/" Icon="@Icons.Material.Filled.House">Home</MudNavLink>
@@ -37,6 +36,11 @@
 </MudLayout>
 
 @code {
+
+    private string DarkToggleColor()
+    {
+        return AppState.IsDarkMode ? "icon-color-light" : "icon-color-dark";
+    }
     protected override void OnInitialized()
     {
         base.OnInitialized();
@@ -47,5 +51,4 @@
     {
         AppState.OnUpdate += StateHasChanged;
     }
-
 }
