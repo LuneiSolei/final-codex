@@ -11,10 +11,13 @@
 
 <MudLayout>
     <MudAppBar Fixed="false">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start"
-                       OnClick="@(AppState.ToggleNavMenu)"/>
-        <MudSpacer/>
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit"/>
+        <MudSpacer />
+        <MudSwitch @bind-Value="AppState.IsDarkMode" 
+                   ThumbIcon="@(AppState.IsDarkMode ? Icons.Material.Filled.DarkMode : Icons.Material.Filled.LightMode)"
+                   Class="@DarkToggleColor()"
+                   Color="Color.Primary" 
+                   Size="Size.Large"/>
+        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Edge="Edge.End" />
     </MudAppBar>
     
     <MudDrawer @bind-Open="@AppState.IsNavMenuOpen" Variant="DrawerVariant.Mini" ClipMode="DrawerClipMode.Always">
