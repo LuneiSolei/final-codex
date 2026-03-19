@@ -1,13 +1,12 @@
 .theme-mode-toggle ::deep .mud-icon-root.mud-svg-icon {
     height: 36px !important;
     width: 36px !important;
-    color: rgb(255, 227, 1);
 }
 
-.theme-mode-toggle ::deep .mud-switch-button {
-    color: rgba(0, 0, 0, 0);
+.theme-mode-toggle-light ::deep .mud-icon-root.mud-svg-icon {
+    fill: rgb(255, 227, 1) !important;
 }
 
-.theme-mode-toggle ::deep .mud-switch-thumb-large.d-flex.align-center.justify-center {
-    box-shadow: none;
+.theme-mode-toggle-dark ::deep .mud-icon-root.mud-svg-icon {
+    fill: aliceblue !important;
 }

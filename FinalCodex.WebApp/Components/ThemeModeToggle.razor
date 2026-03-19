@@ -2,6 +2,8 @@
 @using FinalCodex.Shared;
 @inject AppState AppState
 
-<div class="theme-mode-toggle">
-    <MudIconButton Icon="@ThemeIcon" OnClick="@AppState.ToggleThemeMode" />
+<div class="@IconColor">
+    <MudToggleIconButton @bind-Toggled="AppState.IsDarkMode" Icon="@Icons.Material.Filled.LightMode" 
+                         ToggledIcon="@Icons.Material.Filled.DarkMode"
+                         title="@(AppState.IsDarkMode ? "Dark" : "Light")" />
 </div>

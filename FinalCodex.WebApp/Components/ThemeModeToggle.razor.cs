@@ -5,5 +5,5 @@ namespace FinalCodex.WebApp.Components;
 
 public partial class ThemeModeToggle : ComponentBase
 {
-    private string ThemeIcon => AppState.IsDarkMode ? Icons.Material.Filled.DarkMode : Icons.Material.Filled.LightMode;
+    private string IconColor => AppState.IsDarkMode ? "theme-mode-toggle-dark" : "theme-mode-toggle-light";
 }

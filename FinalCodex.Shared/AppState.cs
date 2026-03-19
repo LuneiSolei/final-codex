@@ -26,7 +26,6 @@ public class AppState
     }
     
     public void ToggleNavMenu() { IsNavMenuOpen = !IsNavMenuOpen; }
-    public void ToggleThemeMode() { IsDarkMode = !IsDarkMode; }
 
     private void NotifyOnStateChanged() => OnStateChanged?.Invoke();
 }
