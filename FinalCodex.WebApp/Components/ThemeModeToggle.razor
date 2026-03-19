@@ -1,0 +1,7 @@
+@using MudBlazor;
+@using FinalCodex.Shared;
+@inject AppState AppState
+
+<div class="theme-mode-toggle">
+    <MudIconButton Icon="@ThemeIcon" OnClick="@AppState.ToggleThemeMode" />
+</div>
