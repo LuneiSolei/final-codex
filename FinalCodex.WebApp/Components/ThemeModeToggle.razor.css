@@ -1,0 +1,13 @@
+.theme-mode-toggle ::deep .mud-icon-root.mud-svg-icon {
+    height: 36px !important;
+    width: 36px !important;
+    color: rgb(255, 227, 1);
+}
+
+.theme-mode-toggle ::deep .mud-switch-button {
+    color: rgba(0, 0, 0, 0);
+}
+
+.theme-mode-toggle ::deep .mud-switch-thumb-large.d-flex.align-center.justify-center {
+    box-shadow: none;
+}
