@@ -2,13 +2,31 @@
 
 public class AppState
 {
-    public bool IsNavMenuOpen { get; set; }
-    public bool IsDarkMode { get; set; } = true;
-    public event Action? OnUpdate;
+    
+    public event Action? OnStateChanged;
 
-    public void ToggleNavMenu()
+    public bool IsDarkMode
     {
-        IsNavMenuOpen = !IsNavMenuOpen;
-        OnUpdate?.Invoke();
+        get;
+        set
+        {
+            field = value;
+            NotifyOnStateChanged();
+        }
+    } = true;
+
+    public bool IsNavMenuOpen
+    {
+        get;
+        set
+        {
+            field = value;
+            NotifyOnStateChanged();
+        }
     }
+    
+    public void ToggleNavMenu() { IsNavMenuOpen = !IsNavMenuOpen; }
+    public void ToggleThemeMode() { IsDarkMode = !IsDarkMode; }
+
+    private void NotifyOnStateChanged() => OnStateChanged?.Invoke();
 }
