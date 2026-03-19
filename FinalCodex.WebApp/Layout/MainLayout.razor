@@ -1,10 +1,10 @@
 ﻿@using FinalCodex.Shared
+@using FinalCodex.WebApp.Components
 @using MudBlazor
 @inherits LayoutComponentBase
 @inject AppState AppState
-@implements IDisposable
 
-<MudThemeProvider @bind-IsDarkMode="@AppState.IsDarkMode"/>
+<MudThemeProvider @bind-IsDarkMode="@AppState.IsDarkMode" />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
@@ -14,8 +14,7 @@
         <MudIconButton Edge="Edge.Start" Size="Size.Large" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" 
                        OnClick="@AppState.ToggleNavMenu" />
         <MudSpacer/>
-        <MudSwitch @bind-Value="AppState.IsDarkMode" Class="@ThemeToggleIconColor" Color="Color.Primary" Size="Size.Large"
-                   ThumbIcon="@ThemeMode" />
+        <ThemeModeToggle />
         <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Edge="Edge.End"/>
     </MudAppBar>
     
@@ -35,16 +34,3 @@
         @Body
     </MudMainContent>
 </MudLayout>
-
-@code {
-    private string ThemeToggleIconColor => AppState.IsDarkMode ? "icon-color-light" : "icon-color-dark";
-    private string ThemeMode => AppState.IsDarkMode ? Icons.Material.Filled.DarkMode : Icons.Material.Filled.LightMode;
-    
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-        AppState.OnUpdate += StateHasChanged;
-    }
-
-    public void Dispose() => AppState.OnUpdate -= StateHasChanged;
-}
