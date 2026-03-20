@@ -1,11 +1,8 @@
 bin/
 obj/
+tmp/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
 .nuget/
-tmp/
-
-# Environment Variables
-.env
-.env.*
+.idea/
