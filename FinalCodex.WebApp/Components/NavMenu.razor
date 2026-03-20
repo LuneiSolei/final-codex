@@ -1,0 +1,27 @@
+@using FinalCodex.Shared
+@using MudBlazor
+@inject AppState AppState;
+
+<div>
+    <MudDrawer @bind-Open="@AppState.IsNavMenuOpen"
+               Variant="DrawerVariant.Mini"
+               ClipMode="DrawerClipMode.Always">
+        <MudDrawerHeader>
+            @* TODO: Add mini logo here *@
+            <MudIcon Icon="@Icons.Material.Filled.BrokenImage"></MudIcon>
+        </MudDrawerHeader>
+
+        <MudNavMenu>
+            <MudNavLink Href="/"
+                        Icon="@Icons.Material.Filled.House"
+                        Match="NavLinkMatch.All">
+                Home
+            </MudNavLink>
+
+            <MudNavLink Href="/search"
+                        Icon="@Icons.Material.Filled.Search">
+                Search
+            </MudNavLink>
+        </MudNavMenu>
+    </MudDrawer>
+</div>

@@ -21,18 +21,27 @@
                        Color="Color.Inherit"
                        Edge="Edge.End" />
     </MudAppBar>
-    
-    <MudDrawer @bind-Open="@AppState.IsNavMenuOpen" Variant="DrawerVariant.Mini" ClipMode="DrawerClipMode.Always">
-        <MudDrawerHeader>
-        </MudDrawerHeader>
-        <MudNavMenu>
-            <MudNavLink Href="/" Icon="@Icons.Material.Filled.House">Home</MudNavLink>
-            <MudNavGroup Title="Account" Expanded="false" Icon="@Icons.Material.Filled.Person">
-                <MudNavLink Href="/account/settings" Icon="@Icons.Material.Filled.Settings">Settings</MudNavLink>
-                <MudNavLink Href="/account/login" Icon="@Icons.Material.Filled.Login">Log In</MudNavLink>
-            </MudNavGroup>
-        </MudNavMenu>
-    </MudDrawer>
+
+    <NavMenu />
+
+    @* <MudDrawer @bind-Open="@AppState.IsNavMenuOpen" Variant="DrawerVariant.Mini" *@
+    @*            ClipMode="DrawerClipMode.Always"> *@
+    @*     <MudDrawerHeader> *@
+    @*     </MudDrawerHeader> *@
+    @*     <MudNavMenu> *@
+    @*         <MudNavLink Href="/" Icon="@Icons.Material.Filled.House">Home *@
+    @*         </MudNavLink> *@
+    @*         <MudNavGroup Title="Account" Expanded="false" *@
+    @*                      Icon="@Icons.Material.Filled.Person"> *@
+    @*             <MudNavLink Href="/account/settings" *@
+    @*                         Icon="@Icons.Material.Filled.Settings">Settings *@
+    @*             </MudNavLink> *@
+    @*             <MudNavLink Href="/account/login" *@
+    @*                         Icon="@Icons.Material.Filled.Login">Log In *@
+    @*             </MudNavLink> *@
+    @*         </MudNavGroup> *@
+    @*     </MudNavMenu> *@
+    @* </MudDrawer> *@
 
     <MudMainContent Class="pt-16 px-16">
         @Body
