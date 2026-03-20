@@ -1,5 +1,6 @@
 @page "/search"
 @using FinalCodex.Shared
+@using MudBlazor
 @inject AppState AppState
 
 <MudTextField @bind-Value="TextValue" Underline="false"
@@ -7,5 +8,5 @@
               ShrinkLabel="true" Clearable="true" Class="mud-theme-dark" />
 
 @code {
-    public string TextValue { get; set; }
+    public string TextValue { get; set; } = "";
 }
