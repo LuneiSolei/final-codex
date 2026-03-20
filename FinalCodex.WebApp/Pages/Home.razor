@@ -1,9 +1,8 @@
 ﻿@page "/"
 @using FinalCodex.Shared
-@using MudBlazor
 @inject AppState AppState
 
-<MudButton OnClick="@(_ => AppState.ToggleNavMenu())" >Test</MudButton>
+<MudButton OnClick="@(_ => AppState.ToggleNavMenu())">Test</MudButton>
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>

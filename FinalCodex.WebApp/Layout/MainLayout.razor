@@ -1,5 +1,4 @@
 ﻿@using FinalCodex.Shared
-@using FinalCodex.WebApp.Components
 @using MudBlazor
 @inherits LayoutComponentBase
 @inject AppState AppState
@@ -11,11 +10,16 @@
 
 <MudLayout>
     <MudAppBar Fixed="false">
-        <MudIconButton Edge="Edge.Start" Size="Size.Large" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" 
+        <MudIconButton Edge="Edge.Start"
+                       Size="Size.Large"
+                       Icon="@Icons.Material.Filled.Menu"
+                       Color="Color.Inherit"
                        OnClick="@AppState.ToggleNavMenu" />
-        <MudSpacer/>
+        <MudSpacer />
         <ThemeModeToggle />
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Edge="Edge.End"/>
+        <MudIconButton Icon="@Icons.Custom.Brands.GitHub"
+                       Color="Color.Inherit"
+                       Edge="Edge.End" />
     </MudAppBar>
     
     <MudDrawer @bind-Open="@AppState.IsNavMenuOpen" Variant="DrawerVariant.Mini" ClipMode="DrawerClipMode.Always">

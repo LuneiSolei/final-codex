@@ -1,9 +1,9 @@
 @page "/search"
 @using FinalCodex.Shared
-@using MudBlazor
 @inject AppState AppState
 
-<MudTextField @bind-Value="TextValue" Underline="false" Variant="Variant.Outlined" Placeholder="Search" 
+<MudTextField @bind-Value="TextValue" Underline="false"
+              Variant="Variant.Outlined" Placeholder="Search"
               ShrinkLabel="true" Clearable="true" Class="mud-theme-dark" />
 
 @code {

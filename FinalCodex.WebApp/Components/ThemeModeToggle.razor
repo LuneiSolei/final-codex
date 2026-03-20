@@ -1,9 +1,10 @@
-@using MudBlazor;
-@using FinalCodex.Shared;
+@using FinalCodex.Shared
+@using MudBlazor
 @inject AppState AppState
 
 <div class="@IconColor">
-    <MudToggleIconButton @bind-Toggled="AppState.IsDarkMode" Icon="@Icons.Material.Filled.LightMode" 
+    <MudToggleIconButton @bind-Toggled="AppState.IsDarkMode"
+                         Icon="@Icons.Material.Filled.LightMode"
                          ToggledIcon="@Icons.Material.Filled.DarkMode"
                          title="@(AppState.IsDarkMode ? "Dark" : "Light")" />
 </div>

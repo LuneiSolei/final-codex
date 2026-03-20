@@ -2,9 +2,6 @@
 
 public class AppState
 {
-    
-    public event Action? OnStateChanged;
-
     public bool IsDarkMode
     {
         get;
@@ -24,8 +21,16 @@ public class AppState
             NotifyOnStateChanged();
         }
     }
-    
-    public void ToggleNavMenu() { IsNavMenuOpen = !IsNavMenuOpen; }
 
-    private void NotifyOnStateChanged() => OnStateChanged?.Invoke();
+    public event Action? OnStateChanged;
+
+    public void ToggleNavMenu()
+    {
+        IsNavMenuOpen = !IsNavMenuOpen;
+    }
+
+    private void NotifyOnStateChanged()
+    {
+        OnStateChanged?.Invoke();
+    }
 }
