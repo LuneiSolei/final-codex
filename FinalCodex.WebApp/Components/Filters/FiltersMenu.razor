@@ -4,8 +4,8 @@
 
 <div class="filters-menu">
     <MudDrawerContainer>
-        <MudDrawer Class="pa-8" Width="512px"
-                   Open="AppState.Search.IsFiltersMenuOpen" Anchor="Anchor.End">
+        <MudDrawer Class="pa-8" Width="512px" Anchor="Anchor.End"
+                   @bind-Open="AppState.Search.IsFiltersMenuOpen">
             <MudExpansionPanels MultiExpansion="true" >
                 @* Job Level *@
                 <MudExpansionPanel Text="Job Level" >
