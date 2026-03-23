@@ -1,0 +1,30 @@
+@using FinalCodex.Shared
+@using MudBlazor
+@inject AppState AppState
+
+<div class="filters-menu">
+    <MudDrawerContainer>
+        <MudDrawer Class="pa-8" Width="512px"
+                   Open="AppState.Search.IsFiltersMenuOpen" Anchor="Anchor.End">
+            <MudExpansionPanels MultiExpansion="true" >
+                @* Job Level *@
+                <MudExpansionPanel Text="Job Level" >
+                    <MinMaxFilter Min="0" MinBind="AppState.Search.MinJobLvl"
+                                  Max="100" MaxBind="AppState.Search.MaxJobLvl" />
+                </MudExpansionPanel>
+
+                @* Item Level *@
+                <MudExpansionPanel Text="Item Level">
+                    <MinMaxFilter Min="0" MinBind="AppState.Search.MinILvl"
+                                  Max="795" MaxBind="AppState.Search.MaxILvl"
+                                  Step="5" />
+                </MudExpansionPanel>
+            </MudExpansionPanels>
+        </MudDrawer>
+    </MudDrawerContainer>
+    <MudOverlay @bind-Visible="AppState.Search.IsFiltersMenuOpen" 
+                DarkBackground="AppState.IsDarkMode" 
+                LightBackground="!AppState.IsDarkMode" AutoClose="true" />
+</div>
+
+

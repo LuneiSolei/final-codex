@@ -1,12 +1,32 @@
 @page "/search"
 @using FinalCodex.Shared
+@using FinalCodex.WebApp.Components.Filters
 @using MudBlazor
 @inject AppState AppState
 
-<MudTextField @bind-Value="TextValue" Underline="false"
-              Variant="Variant.Outlined" Placeholder="Search"
-              ShrinkLabel="true" Clearable="true" Class="mud-theme-dark" />
+<FiltersMenu />
 
-@code {
-    public string TextValue { get; set; } = "";
-}
+<MudContainer Class="pa-8">
+    <MudStack Spacing="8">
+        @* Search Form *@
+        <MudForm @ref="Form" OnEnterPressed="Submit">
+            @* Searchbar *@
+            <MudTextField @bind-Value="AppState.Search.Query"
+                          Adornment="Adornment.End"
+                          AdornmentIcon="@GetFilterIcon()"
+                          Class="mud-theme-dark"
+                          Clearable="true"
+                          For="@(() => AppState.Search.Query)"
+                          OnAdornmentClick="@ToggleSearchFilters"
+                          Placeholder="Search"
+                          ShrinkLabel="true"
+                          Underline="false"
+                          Variant="Variant.Outlined" />
+        </MudForm>
+
+        @* Results *@
+        <MudPaper Class="pa-4">
+            <MudText>Results go here</MudText>
+        </MudPaper>
+    </MudStack>
+</MudContainer>

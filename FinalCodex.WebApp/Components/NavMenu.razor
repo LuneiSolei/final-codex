@@ -3,23 +3,23 @@
 @inject AppState AppState;
 
 <div>
-    <MudDrawer @bind-Open="@AppState.IsNavMenuOpen"
+    <MudDrawer @bind-Open="AppState.IsNavMenuOpen"
                Variant="DrawerVariant.Mini"
                ClipMode="DrawerClipMode.Always">
         <MudDrawerHeader>
             @* TODO: Add mini logo here *@
-            <MudIcon Icon="@Icons.Material.Filled.BrokenImage"></MudIcon>
+            <MudIcon Icon="@Icons.Material.TwoTone.BrokenImage"></MudIcon>
         </MudDrawerHeader>
 
         <MudNavMenu>
             <MudNavLink Href="/"
-                        Icon="@Icons.Material.Filled.House"
+                        Icon="@Icons.Material.TwoTone.House"
                         Match="NavLinkMatch.All">
                 Home
             </MudNavLink>
 
             <MudNavLink Href="/search"
-                        Icon="@Icons.Material.Filled.Search">
+                        Icon="@Icons.Material.TwoTone.Search">
                 Search
             </MudNavLink>
         </MudNavMenu>

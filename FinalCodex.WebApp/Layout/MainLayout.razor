@@ -4,7 +4,7 @@
 @inherits LayoutComponentBase
 @inject AppState AppState
 
-<MudThemeProvider @bind-IsDarkMode="@AppState.IsDarkMode" />
+<MudThemeProvider @bind-IsDarkMode="AppState.IsDarkMode" />
 <MudPopoverProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
@@ -13,9 +13,9 @@
     <MudAppBar Fixed="false">
         <MudIconButton Edge="Edge.Start"
                        Size="Size.Large"
-                       Icon="@Icons.Material.Filled.Menu"
+                       Icon="@Icons.Material.TwoTone.Menu"
                        Color="Color.Inherit"
-                       OnClick="@AppState.ToggleNavMenu" />
+                       OnClick="@ToggleNavMenu" />
         <MudSpacer />
         <ThemeModeToggle />
         <MudIconButton Icon="@Icons.Custom.Brands.GitHub"
@@ -23,7 +23,7 @@
                        Edge="Edge.End" />
     </MudAppBar>
     <NavMenu />
-    <MudMainContent Class="pt-16 px-16">
+    <MudMainContent Class="pa-0">
         @Body
     </MudMainContent>
 </MudLayout>

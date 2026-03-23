@@ -2,6 +2,13 @@
 
 public class AppState
 {
+    public AppState()
+    {
+        Search.OnStateChanged += NotifyOnStateChanged;
+    }
+    
+    public Search Search = new();
+    
     public bool IsDarkMode
     {
         get;
@@ -23,12 +30,7 @@ public class AppState
     }
 
     public event Action? OnStateChanged;
-
-    public void ToggleNavMenu()
-    {
-        IsNavMenuOpen = !IsNavMenuOpen;
-    }
-
+    
     private void NotifyOnStateChanged()
     {
         OnStateChanged?.Invoke();

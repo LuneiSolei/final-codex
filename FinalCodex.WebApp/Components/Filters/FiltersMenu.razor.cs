@@ -1,16 +1,16 @@
-namespace FinalCodex.WebApp.Components;
+namespace FinalCodex.WebApp.Components.Filters;
 
-public partial class NavMenu : IDisposable
+public partial class FiltersMenu : IDisposable
 {
     protected override void OnInitialized()
     {
         base.OnInitialized();
         AppState.OnStateChanged += StateHasChanged;
     }
-    
+
     public void Dispose()
     {
-        AppState.OnStateChanged -= StateHasChanged;
         GC.SuppressFinalize(this);
+        AppState.OnStateChanged -= StateHasChanged;
     }
 }

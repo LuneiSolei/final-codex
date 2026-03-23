@@ -1,0 +1,20 @@
+@using MudBlazor
+@typeparam T where T : struct, System.Numerics.INumber<T>
+
+<div class="min-max-slider">
+    <MudText Typo="Typo.h6">@Label</MudText>
+    <MudStack Row>
+        <MudStack Spacing="1">
+            <MudText>Minimum</MudText>
+            <MudNumericField @bind-Value="MinBind" Min="Min" Max="Max"
+                             Variant="Variant.Outlined" Underline="false" /> 
+            <MudSlider @bind-Value="MinBind" Min="Min" Max="Max" Step="Step" />
+        </MudStack>
+        <MudStack Spacing="1">
+            <MudText>Maximum</MudText>
+            <MudNumericField @bind-Value="MaxBind" Min="Min" Max="Max"
+                             Variant="Variant.Outlined" Underline="false" />
+            <MudSlider @bind-Value="MaxBind" Min="Min" Max="Max" Step="Step" />
+        </MudStack>
+    </MudStack>
+</div>
