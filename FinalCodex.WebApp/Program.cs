@@ -1,11 +1,12 @@
-using FinalCodex.Shared;
+using FinalCodex.SharedLibrary;
+using FinalCodex.SharedLibrary.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
 
 namespace FinalCodex.WebApp;
 
-public class Program
+public static class Program
 {
     public static async Task Main(string[] args)
     {
@@ -16,6 +17,7 @@ public class Program
         builder.Services.AddScoped(_ => new HttpClient
             { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
         builder.Services.AddScoped<AppState>();
+        builder.Services.AddSharedLibrary(builder.Configuration);
         builder.Services.AddMudServices();
 
         await builder.Build().RunAsync();

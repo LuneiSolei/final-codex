@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\FinalCodex.Shared\FinalCodex.Shared.csproj"/>
+        <ProjectReference Include="..\FinalCodex.SharedLibrary\FinalCodex.SharedLibrary.csproj" />
     </ItemGroup>
 
 </Project>

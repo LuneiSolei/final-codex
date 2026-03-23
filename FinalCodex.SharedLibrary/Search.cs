@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace FinalCodex.Shared;
+namespace FinalCodex.SharedLibrary;
 
 public class Search
 {

@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalCodex.Shared", "FinalCodex.Shared\FinalCodex.Shared.csproj", "{BA5656CC-E722-4FE8-BA29-F616EB3FA89F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalCodex.SharedLibrary", "FinalCodex.SharedLibrary\FinalCodex.SharedLibrary.csproj", "{BA5656CC-E722-4FE8-BA29-F616EB3FA89F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalCodex.WebApp", "FinalCodex.WebApp\FinalCodex.WebApp.csproj", "{A1FA5680-AB33-4C43-95FC-4D848F8E46D4}"
 EndProject
