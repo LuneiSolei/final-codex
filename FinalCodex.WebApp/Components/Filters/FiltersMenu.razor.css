@@ -1,3 +1,7 @@
 .filters-menu ::deep .mud-drawer {
     height: calc(100vh - var(--mud-appbar-height)) !important;
 }
+
+.filters-menu ::deep .mud-drawer:not(.mud-drawer-fixed) {
+    position: fixed !important;
+}
