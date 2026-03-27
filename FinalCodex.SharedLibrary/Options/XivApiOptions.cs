@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace FinalCodex.SharedLibrary.Settings;
+namespace FinalCodex.SharedLibrary.Options;
 
-public class XivApi
+public class XivApiOptions
 {
     [Required] public string BaseApiUrl { get; set; }
 }

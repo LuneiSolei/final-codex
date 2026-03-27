@@ -1,6 +1,5 @@
-using System.Diagnostics;
 using System.Reflection;
-using FinalCodex.SharedLibrary.Settings;
+using FinalCodex.SharedLibrary.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,29 +7,24 @@ namespace FinalCodex.SharedLibrary.Services;
 
 public static class ServiceCollectionExtensions 
 {
-    public static IServiceCollection AddSharedLibrary(
-        this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddSharedLibraryService(
+        this IServiceCollection services,
+        IConfiguration userConfig)
     {
-        // Get assembly (.dll) for the shared library
-        Assembly assembly = Assembly.GetExecutingAssembly();
+        Assembly assembly = typeof(ServiceCollectionExtensions).Assembly;
+        Stream stream = assembly.GetManifestResourceStream(
+                name: "FinalCodex.SharedLibrary.appsettings.json") 
+                ?? throw new FileNotFoundException();
         
-        string resourceName = "SharedLibrary.appsettings.json";
-        using Stream? stream = assembly.GetManifestResourceStream(resourceName);
-        Debug.Assert(stream != null, nameof(stream) + " != null");
-        
-        // Build a local IConfiguration with priority order from lowest to 
-        // highest
-        IConfiguration libraryConfig = new ConfigurationBuilder()
+        // Load default values from appsettings.json embedded in our library
+        IConfiguration defaultConfig = new ConfigurationBuilder()
             .AddJsonStream(stream)
-            .AddConfiguration(configuration)
             .Build();
-
-        // Bind our librarySettings section of appsettings.json to our
-        // SharedLibrarySettings class
-        services.AddOptionsWithValidateOnStart<SharedLibrarySettings>()
-            .Bind(libraryConfig);
         
-        services.AddScoped<SharedLibraryService>();
+        // Configure service with default options
+        services.AddOptions<SharedLibraryOptions>()
+            .Bind(defaultConfig.GetSection("SharedLibraryOptions")) // Library defaults
+            .Bind(userConfig.GetSection("SharedLibraryOptions"));    // User overrides
 
         return services;
     }

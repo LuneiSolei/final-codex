@@ -1,4 +1,5 @@
 using FinalCodex.SharedLibrary;
+using FinalCodex.SharedLibrary.Options;
 using FinalCodex.SharedLibrary.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -10,15 +11,20 @@ public static class Program
 {
     public static async Task Main(string[] args)
     {
-        var builder = WebAssemblyHostBuilder.CreateDefault(args);
+        WebAssemblyHostBuilder builder = WebAssemblyHostBuilder.CreateDefault(args);
         builder.RootComponents.Add<App>("#app");
         builder.RootComponents.Add<HeadOutlet>("head::after");
 
+        XivApiOptions options = new();
+        builder.Configuration.GetSection(nameof(XivApiOptions))
+            .Bind(options);
+
         builder.Services.AddScoped(_ => new HttpClient
             { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-        builder.Services.AddScoped<AppState>();
-        builder.Services.AddSharedLibrary(builder.Configuration);
         builder.Services.AddMudServices();
+        
+        builder.Services.AddScoped<AppState>();
+        builder.Services.AddSharedLibraryService(builder.Configuration);
 
         await builder.Build().RunAsync();
     }
