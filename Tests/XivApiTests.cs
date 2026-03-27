@@ -20,7 +20,7 @@ public class Tests
         CodexOptions libOpts = provider
             .GetRequiredService<IOptions<CodexOptions>>().Value;
         
-        Assert.That(libOpts.XivApiOptions.BaseApiUrl,
+        Assert.That(libOpts.XivApiOptions.BaseUrl,
             Is.EqualTo("https://v2.xivapi.com"));
     }
     
@@ -30,7 +30,7 @@ public class Tests
         // Mimic a project's local config that overrides appsettings.json
         Dictionary<string, string?> testConfig = new()
         {
-            ["CodexOptions:XivApiOptions:BaseApiUrl"] = "https://google.com"
+            ["CodexOptions:XivApiOptions:BaseUrl"] = "https://google.com"
         };
         IConfiguration config = new ConfigurationBuilder()
             .AddInMemoryCollection(testConfig).Build();
@@ -42,7 +42,7 @@ public class Tests
         CodexOptions libOpts = provider
             .GetRequiredService<IOptions<CodexOptions>>().Value;
         
-        Assert.That(libOpts.XivApiOptions.BaseApiUrl, 
+        Assert.That(libOpts.XivApiOptions.BaseUrl, 
             Is.EqualTo("https://google.com"));
     }
 }

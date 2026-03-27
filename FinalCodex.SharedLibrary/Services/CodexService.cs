@@ -18,9 +18,4 @@ public class CodexService
         SearchState = new SearchState(OnStateChanged);
         AppState = new AppState(OnStateChanged);
     }
-
-    public void GetXivApiItems()
-    {
-        
-    }
 }
