@@ -1,4 +1,4 @@
-﻿namespace FinalCodex.SharedLibrary.Services;
+﻿namespace FinalCodex.SharedLibrary.State;
 
 public class AppState
 {

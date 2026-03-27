@@ -1,5 +1,6 @@
 using FinalCodex.SharedLibrary.Options;
-using FinalCodex.SharedLibrary.Services.Search;
+using FinalCodex.SharedLibrary.State;
+using FinalCodex.SharedLibrary.State.Search;
 using Microsoft.Extensions.Options;
 
 namespace FinalCodex.SharedLibrary.Services;
