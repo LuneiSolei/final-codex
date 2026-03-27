@@ -9,7 +9,23 @@ namespace XivApiTests;
 public class Tests
 {
     [Test]
-    public void BindOptionsTest()
+    public void BindDefaultOptionsTest()
+    {
+        // Create an empty config to get default values
+        IConfiguration config = new ConfigurationBuilder().Build();
+        
+        IServiceCollection services = new ServiceCollection();
+        services.AddSharedLibraryService(config);
+        ServiceProvider provider = services.BuildServiceProvider();
+        SharedLibraryOptions libOpts = provider
+            .GetRequiredService<IOptions<SharedLibraryOptions>>().Value;
+        
+        Assert.That(libOpts.XivApiOptions.BaseApiUrl,
+            Is.EqualTo("https://v2.xivapi.com"));
+    }
+    
+    [Test]
+    public void BindCustomOptionsTest()
     {
         // Mimic a project's local config that overrides appsettings.json
         Dictionary<string, string?> testConfig = new()
@@ -18,15 +34,15 @@ public class Tests
         };
         IConfiguration config = new ConfigurationBuilder()
             .AddInMemoryCollection(testConfig).Build();
-
+        
         IServiceCollection services = new ServiceCollection();
         services.AddSharedLibraryService(config);
 
         ServiceProvider provider = services.BuildServiceProvider();
-        SharedLibraryOptions sharedLibraryOptions = provider
+        SharedLibraryOptions libOpts = provider
             .GetRequiredService<IOptions<SharedLibraryOptions>>().Value;
         
-        Assert.That(sharedLibraryOptions.XivApiOptions.BaseApiUrl, 
+        Assert.That(libOpts.XivApiOptions.BaseApiUrl, 
             Is.EqualTo("https://google.com"));
     }
 }
