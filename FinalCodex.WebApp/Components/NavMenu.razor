@@ -1,9 +1,9 @@
-@using FinalCodex.SharedLibrary
+@using FinalCodex.SharedLibrary.Services
 @using MudBlazor
-@inject AppState AppState;
+@inject CodexService CodexService;
 
 <div>
-    <MudDrawer @bind-Open="AppState.IsNavMenuOpen"
+    <MudDrawer @bind-Open="CodexService.AppState.IsNavMenuOpen"
                Variant="DrawerVariant.Mini"
                ClipMode="DrawerClipMode.Always">
         <MudDrawerHeader>
@@ -20,7 +20,7 @@
 
             <MudNavLink Href="/search"
                         Icon="@Icons.Material.TwoTone.Search">
-                Search
+                SearchState
             </MudNavLink>
         </MudNavMenu>
     </MudDrawer>

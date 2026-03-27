@@ -7,7 +7,7 @@ namespace FinalCodex.SharedLibrary.Services;
 
 public static class ServiceCollectionExtensions 
 {
-    public static IServiceCollection AddSharedLibraryService(
+    public static IServiceCollection AddCodexService(
         this IServiceCollection services,
         IConfiguration userConfig)
     {
@@ -22,9 +22,11 @@ public static class ServiceCollectionExtensions
             .Build();
         
         // Configure service with default options
-        services.AddOptions<SharedLibraryOptions>()
-            .Bind(defaultConfig.GetSection("SharedLibraryOptions")) // Library defaults
-            .Bind(userConfig.GetSection("SharedLibraryOptions"));    // User overrides
+        services.AddOptions<CodexOptions>()
+            .Bind(defaultConfig.GetSection("CodexOptions")) // Library defaults
+            .Bind(userConfig.GetSection("CodexOptions"));   // User overrides
+
+        services.AddScoped<CodexOptions>();
 
         return services;
     }

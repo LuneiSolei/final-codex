@@ -15,10 +15,10 @@ public class Tests
         IConfiguration config = new ConfigurationBuilder().Build();
         
         IServiceCollection services = new ServiceCollection();
-        services.AddSharedLibraryService(config);
+        services.AddCodexService(config);
         ServiceProvider provider = services.BuildServiceProvider();
-        SharedLibraryOptions libOpts = provider
-            .GetRequiredService<IOptions<SharedLibraryOptions>>().Value;
+        CodexOptions libOpts = provider
+            .GetRequiredService<IOptions<CodexOptions>>().Value;
         
         Assert.That(libOpts.XivApiOptions.BaseApiUrl,
             Is.EqualTo("https://v2.xivapi.com"));
@@ -30,17 +30,17 @@ public class Tests
         // Mimic a project's local config that overrides appsettings.json
         Dictionary<string, string?> testConfig = new()
         {
-            ["SharedLibraryOptions:XivApiOptions:BaseApiUrl"] = "https://google.com"
+            ["CodexOptions:XivApiOptions:BaseApiUrl"] = "https://google.com"
         };
         IConfiguration config = new ConfigurationBuilder()
             .AddInMemoryCollection(testConfig).Build();
         
         IServiceCollection services = new ServiceCollection();
-        services.AddSharedLibraryService(config);
+        services.AddCodexService(config);
 
         ServiceProvider provider = services.BuildServiceProvider();
-        SharedLibraryOptions libOpts = provider
-            .GetRequiredService<IOptions<SharedLibraryOptions>>().Value;
+        CodexOptions libOpts = provider
+            .GetRequiredService<IOptions<CodexOptions>>().Value;
         
         Assert.That(libOpts.XivApiOptions.BaseApiUrl, 
             Is.EqualTo("https://google.com"));

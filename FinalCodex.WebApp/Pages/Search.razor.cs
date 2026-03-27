@@ -1,3 +1,4 @@
+using FinalCodex.SharedLibrary.Services;
 using MudBlazor;
 
 namespace FinalCodex.WebApp.Pages;
@@ -8,13 +9,13 @@ public partial class Search : IDisposable
 
     private void ToggleSearchFilters()
     {
-        AppState.Search.IsFiltersMenuOpen =
-            !AppState.Search.IsFiltersMenuOpen;
+        CodexService.SearchState.IsFiltersMenuOpen =
+            !CodexService.SearchState.IsFiltersMenuOpen;
     }
 
     private string GetFilterIcon()
     {
-        return AppState.Search.IsFiltersMenuOpen
+        return CodexService.SearchState.IsFiltersMenuOpen
             ? Icons.Material.Filled.FilterAlt
             : Icons.Material.TwoTone.FilterAlt;
     }
@@ -32,12 +33,12 @@ public partial class Search : IDisposable
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        AppState.OnStateChanged += StateHasChanged;
+        CodexService.OnStateChanged += StateHasChanged;
     }
 
     public void Dispose()
     {
         GC.SuppressFinalize(this);
-        AppState.OnStateChanged -= StateHasChanged;
+        CodexService.OnStateChanged -= StateHasChanged;
     }
 }

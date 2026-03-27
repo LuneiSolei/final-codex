@@ -1,13 +1,16 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace FinalCodex.SharedLibrary;
+namespace FinalCodex.SharedLibrary.Services.Search;
 
-public class Search
+public partial class SearchState
 {
-    // Prevent external instantiation
-    internal Search() {}
-
     internal event Action? OnStateChanged;
+    
+    // Prevent external instantiation
+    internal SearchState(Action? onStateChanged)
+    {
+        OnStateChanged += onStateChanged;
+    }
     
     [Required(ErrorMessage = "No query entered")]
     [MinLength(1, ErrorMessage = "Query too short")]

@@ -3,7 +3,7 @@ using Microsoft.Extensions.Options;
 
 namespace FinalCodex.SharedLibrary.Options;
 
-public class SharedLibraryOptions
+public class CodexOptions
 {
     [Required]
     [ValidateObjectMembers]

@@ -1,7 +1,8 @@
 ﻿@page "/"
 @using FinalCodex.SharedLibrary
+@using FinalCodex.SharedLibrary.Services
 @using MudBlazor
-@inject AppState AppState
+@inject CodexService CodexService;
 
 <MudButton OnClick="@ToggleNavMenu">Test</MudButton>
 <PageTitle>Home</PageTitle>

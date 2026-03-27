@@ -1,30 +1,30 @@
-@using FinalCodex.SharedLibrary
+@using FinalCodex.SharedLibrary.Services
 @using MudBlazor
-@inject AppState AppState
+@inject CodexService CodexService
 
 <div class="filters-menu">
     <MudDrawerContainer>
         <MudDrawer Class="pa-8" Width="512px" Anchor="Anchor.End"
-                   @bind-Open="AppState.Search.IsFiltersMenuOpen">
+                   @bind-Open="CodexService.SearchState.IsFiltersMenuOpen">
             <MudExpansionPanels MultiExpansion="true" >
                 @* Job Level *@
                 <MudExpansionPanel Text="Job Level" >
-                    <MinMaxFilter Min="0" MinBind="AppState.Search.MinJobLvl"
-                                  Max="100" MaxBind="AppState.Search.MaxJobLvl" />
+                    <MinMaxFilter Min="0" MinBind="CodexService.SearchState.MinJobLvl"
+                                  Max="100" MaxBind="CodexService.SearchState.MaxJobLvl" />
                 </MudExpansionPanel>
 
                 @* Item Level *@
                 <MudExpansionPanel Text="Item Level">
-                    <MinMaxFilter Min="0" MinBind="AppState.Search.MinILvl"
-                                  Max="795" MaxBind="AppState.Search.MaxILvl"
+                    <MinMaxFilter Min="0" MinBind="CodexService.SearchState.MinILvl"
+                                  Max="795" MaxBind="CodexService.SearchState.MaxILvl"
                                   Step="5" />
                 </MudExpansionPanel>
             </MudExpansionPanels>
         </MudDrawer>
     </MudDrawerContainer>
-    <MudOverlay @bind-Visible="AppState.Search.IsFiltersMenuOpen" 
-                DarkBackground="AppState.IsDarkMode" 
-                LightBackground="!AppState.IsDarkMode" AutoClose="true" />
+    <MudOverlay @bind-Visible="CodexService.SearchState.IsFiltersMenuOpen" 
+                DarkBackground="CodexService.AppState.IsDarkMode" 
+                LightBackground="!CodexService.AppState.IsDarkMode" AutoClose="true" />
 </div>
 
 

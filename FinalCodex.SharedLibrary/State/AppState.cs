@@ -1,13 +1,13 @@
-﻿namespace FinalCodex.SharedLibrary;
+﻿namespace FinalCodex.SharedLibrary.Services;
 
 public class AppState
 {
-    public AppState()
-    {
-        Search.OnStateChanged += NotifyOnStateChanged;
-    }
+    internal event Action? OnStateChanged;
     
-    public Search Search = new();
+    internal AppState(Action? onStateChanged)
+    {
+        OnStateChanged += onStateChanged;
+    }
     
     public bool IsDarkMode
     {
@@ -15,7 +15,7 @@ public class AppState
         set
         {
             field = value;
-            NotifyOnStateChanged();
+            HandleOnStateChanged();
         }
     } = true;
 
@@ -25,13 +25,11 @@ public class AppState
         set
         {
             field = value;
-            NotifyOnStateChanged();
+            HandleOnStateChanged();
         }
     }
-
-    public event Action? OnStateChanged;
     
-    private void NotifyOnStateChanged()
+    private void HandleOnStateChanged()
     {
         OnStateChanged?.Invoke();
     }

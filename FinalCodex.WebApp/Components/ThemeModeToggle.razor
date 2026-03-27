@@ -1,10 +1,10 @@
-@using FinalCodex.SharedLibrary
+@using FinalCodex.SharedLibrary.Services
 @using MudBlazor
-@inject AppState AppState
+@inject CodexService CodexService;
 
 <div class="@IconColor">
-    <MudToggleIconButton @bind-Toggled="AppState.IsDarkMode"
+    <MudToggleIconButton @bind-Toggled="CodexService.AppState.IsDarkMode"
                          Icon="@Icons.Material.TwoTone.LightMode"
                          ToggledIcon="@Icons.Material.TwoTone.DarkMode"
-                         title="@(AppState.IsDarkMode ? "Dark" : "Light")" />
+                         title="@(CodexService.AppState.IsDarkMode ? "Dark" : "Light")" />
 </div>

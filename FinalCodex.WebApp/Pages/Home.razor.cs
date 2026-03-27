@@ -4,6 +4,6 @@ public partial class Home
 {
     private void ToggleNavMenu()
     {
-        AppState.IsNavMenuOpen = !AppState.IsNavMenuOpen;
+        CodexService.AppState.IsNavMenuOpen = !CodexService.AppState.IsNavMenuOpen;
     }
 }

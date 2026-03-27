@@ -1,3 +1,5 @@
+using FinalCodex.SharedLibrary.Services;
+
 namespace FinalCodex.WebApp.Components;
 
 public partial class NavMenu : IDisposable
@@ -5,12 +7,12 @@ public partial class NavMenu : IDisposable
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        AppState.OnStateChanged += StateHasChanged;
+        CodexService.OnStateChanged += StateHasChanged;
     }
     
     public void Dispose()
     {
-        AppState.OnStateChanged -= StateHasChanged;
+        CodexService.OnStateChanged -= StateHasChanged;
         GC.SuppressFinalize(this);
     }
 }
