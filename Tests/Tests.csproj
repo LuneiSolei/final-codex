@@ -32,7 +32,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FinalCodex.SharedLibrary\FinalCodex.SharedLibrary.csproj" />
+      <ProjectReference Include="..\FinalCodex.XivApi\FinalCodex.XivApi.csproj" />
     </ItemGroup>
 
 </Project>

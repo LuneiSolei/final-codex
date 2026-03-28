@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using FinalCodex.XivApi.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
