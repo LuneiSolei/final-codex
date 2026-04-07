@@ -2,10 +2,10 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using FinalCodex.XivApi.Core;
 using FinalCodex.XivApi.Core.Enums;
-using FinalCodex.XivApi.Infrastructure.Requests.ClauseBuilder.Steps;
+using FinalCodex.XivApi.Infrastructure.Requests.Clauses.Steps;
 
 [assembly: InternalsVisibleTo(assemblyName: "FinalCodex.Tests")]
-namespace FinalCodex.XivApi.Infrastructure.Requests.ClauseBuilder;
+namespace FinalCodex.XivApi.Infrastructure.Requests.Clauses;
 
 /// <summary>
 /// Builds the specific query parameter used by XIV API in the url string.

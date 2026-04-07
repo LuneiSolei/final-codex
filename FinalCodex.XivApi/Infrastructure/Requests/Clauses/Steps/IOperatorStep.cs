@@ -1,7 +1,7 @@
 using System.Numerics;
 using FinalCodex.XivApi.Core;
 
-namespace FinalCodex.XivApi.Infrastructure.Requests.ClauseBuilder.Steps;
+namespace FinalCodex.XivApi.Infrastructure.Requests.Clauses.Steps;
 
 public interface IOperatorStep
 {
