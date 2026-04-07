@@ -16,6 +16,12 @@ public sealed class SearchSheetRequest : XivApiRequest, ISearchSheetRequestStep
     internal SearchSheetRequest(XivApiOptions opts) : base(opts) { }
 
     // Sheet(s)
+    /// <summary>
+    /// Name of the Excel sheet that the query should be run against.
+    /// </summary>
+    /// <remarks>At least one must be specified if not querying a cursor.</remarks>
+    /// <seealso cref="WithSheets"/>
+    /// <param name="sheet">Name of the Excel sheet.</param>
     public ISearchSheetRequestStep WithSheet(string sheet)
     {
         _sheets?.Add(sheet.ToFirstCapital());
@@ -45,6 +51,11 @@ public sealed class SearchSheetRequest : XivApiRequest, ISearchSheetRequestStep
     }
     
     // Query
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="clause"></param>
+    /// <returns></returns>
     public ISearchSheetRequestStep AddQueryClause(Clause clause)
     {
         _queryClauses ??= [];
