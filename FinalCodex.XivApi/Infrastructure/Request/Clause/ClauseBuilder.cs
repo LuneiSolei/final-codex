@@ -148,7 +148,8 @@ public class ClauseBuilder : IInitialClauseBuilderStep, IConditionStep, IOperato
     {
         // Create common base
         string result = CreateBase();
-
+        
+        // Append correct value
         result += (_strValue, _boolValue) switch
         {
             (not null, _) => _strValue.Replace(' ', '+'),
@@ -157,7 +158,6 @@ public class ClauseBuilder : IInitialClauseBuilderStep, IConditionStep, IOperato
         };
         
         // Encode result
-
         return result;
     }
 }
