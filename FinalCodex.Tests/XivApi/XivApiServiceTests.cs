@@ -58,11 +58,8 @@ public class XivApiServiceTests
             .Is()
             .EqualTo(EqualToValue);
 
-        // XivApiRequest request = _service
-        //     .NewRequestBuilder()
-        //     .AsSearch()
-        //     .FromSheets(["Achievement"])
-        //     .WithFilters([clause])
-        //     .Build();
+        var request = _service.NewRequestBuilder()
+            .AsSearch()
+            .WithSheet(EqualToSheet);
     }
 }
