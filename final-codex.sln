@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalCodex.SharedLibrary", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalCodex.WebApp", "FinalCodex.WebApp\FinalCodex.WebApp.csproj", "{A1FA5680-AB33-4C43-95FC-4D848F8E46D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6B012888-145D-47E7-857B-7D5E857A4B3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalCodex.Tests", "FinalCodex.Tests\FinalCodex.Tests.csproj", "{6B012888-145D-47E7-857B-7D5E857A4B3D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalCodex.XivApi", "FinalCodex.XivApi\FinalCodex.XivApi.csproj", "{29E55BC6-C7EC-4A24-94CC-BFE5BE36E07F}"
 EndProject

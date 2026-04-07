@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
-using FinalCodex.XivApi.Options;
+using FinalCodex.XivApi.Core.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace FinalCodex.XivApi.Services;
 
@@ -25,7 +26,10 @@ public static class ServiceCollectionExtensions
         services.AddOptions<XivApiOptions>()
             .Bind(config.GetSection("XivApiOptions"));
 
-        services.AddScoped<XivApiOptions>();
+        services.AddSingleton(sp => 
+            sp.GetRequiredService<IOptions<XivApiOptions>>().Value);
+
+        services.AddHttpClient<XivApiService>();
 
         return services;
     }

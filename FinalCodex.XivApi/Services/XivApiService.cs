@@ -1,39 +1,48 @@
-using FinalCodex.XivApi.Options;
-using FinalCodex.XivApi.Query;
-using Microsoft.AspNetCore.Http.Extensions;
+using FinalCodex.XivApi.Core.Options;
+using FinalCodex.XivApi.Infrastructure.Request;
+using FinalCodex.XivApi.Infrastructure.Request.Clause;
+using FinalCodex.XivApi.Infrastructure.Request.Clause.Steps;
 using Microsoft.Extensions.Options;
 
 namespace FinalCodex.XivApi.Services;
 
-public class XivApiService(IOptions<XivApiOptions> opts, HttpClient client)
+public class XivApiService(IOptions<XivApiOptions> opts, HttpClient _client)
 {
     private readonly XivApiOptions _opts = opts.Value;
-    private HttpClient _client = client;
 
-    public void GetAchievement(string name)
+    public RequestBuilder NewRequestBuilder()
     {
-        SearchSheet("Achievement", name);
+        return new RequestBuilder(_opts);
     }
 
-    private void SearchSheet(string sheets, string name)
+    public static IInitialClauseBuilderStep NewClause()
     {
-        XivApiQueryBuilder xivQuery = new XivApiQueryBuilder()
-            .Add(new XivApiQueryField("name", "en", "")
-                .EqualTo(name));
-
-        QueryBuilder query = new()
-        {
-            { "sheets", sheets },
-            { "query", xivQuery.ToString() }
-        };
-
-        UriBuilder uri = new()
-        {
-            Host = _opts.BaseUrl,
-            Path = _opts.Endpoints.Search,
-            Query = query.ToString()
-        };
-        
-        _client.GetAsync(uri.Uri);
+        return new ClauseBuilder();
     }
 }
+
+/*
+ * XivApiService.CreateSearchRequest(_opts) <- Returns a RequestBuilder()
+ * internal abstract class RequestBuilder(Options opts) { <- Inherited by, for example, SearchSheet class
+ *      SubQuery? SubQuery <- UrlEncoded XIV API query clauses.
+ * 
+ *      public override string ToString() {
+ *          
+ *      }
+ * }
+ *
+ * internal sealed class ClauseBuilder {
+ *      List<Clause> _clauses = [];
+ *      public SubQuery Add(Clause clause) {
+ *          _clauses.Add(clause)
+ *          return this;
+ *      }
+ * }
+ *
+ * public sealed class SearchSheet(Options opts) : RequestBuilder(Options opts) {
+ *      public override string ToString() {
+ *          return $"{opts.Scheme}://{opts.BaseUrl}/{opts.Endpoints.Search}" +
+ *                 $"?{SubQuery}";
+ *      }
+ * }
+ */

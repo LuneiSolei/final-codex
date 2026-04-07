@@ -1,9 +1,9 @@
-﻿using FinalCodex.XivApi.Options;
+﻿using FinalCodex.XivApi.Core.Options;
 using FinalCodex.XivApi.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace XivApiTests;
+namespace XivApiTests.XivApi;
 
 public class Tests
 {
@@ -17,7 +17,7 @@ public class Tests
             .GetRequiredService<IOptions<XivApiOptions>>().Value;
         
         Assert.That(libOpts.BaseUrl,
-            Is.EqualTo("https://v2.xivapi.com"));
+            Is.EqualTo("v2.xivapi.com"));
     }
     
     // [Test]

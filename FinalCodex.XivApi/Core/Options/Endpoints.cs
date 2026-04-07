@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace FinalCodex.XivApi.Options;
+namespace FinalCodex.XivApi.Core.Options;
 
 public class Endpoints
 {

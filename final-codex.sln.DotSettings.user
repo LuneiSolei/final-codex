@@ -1,7 +1,20 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003ACollection_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002Ejbdevcontainer_003Fconfig_003FJetBrains_003FRider2026_002E1_003Fresharper_002Dhost_003FSourcesCache_003F7ce68360d37e126a0a9e9ae31902461f5c36bf50f8c01e2c62eceb7174f0da_003FCollection_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AMudBaseInput_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002Ejbdevcontainer_003Fconfig_003FJetBrains_003FRider2025_002E3_003Fresharper_002Dhost_003FSourcesCache_003Fe24a87ad27ee4596b53f86c86d50b7c74929bd3e54856719cfbebac4f57_003FMudBaseInput_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AProgram_002Ecs_002Fl_003AWebApp_003FFinalCodex_002EWebApp_003FProgram_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003ARootComponentMappingCollection_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002Ejbdevcontainer_003Fconfig_003FJetBrains_003FRider2026_002E1_003Fresharper_002Dhost_003FSourcesCache_003F61f712c78ce43db71943a689f81e89ff42a957a7d39b128557769370fb43a_003FRootComponentMappingCollection_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AUriBuilder_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002Ejbdevcontainer_003Fconfig_003FJetBrains_003FRider2025_002E3_003Fresharper_002Dhost_003FSourcesCache_003F10821a7c6456595b62433c59889dfe462fca7a3fa6fa981c1dcd3204ff3c210_003FUriBuilder_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AWebAssemblyHostBuilder_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002Ejbdevcontainer_003Fconfig_003FJetBrains_003FRider2026_002E1_003Fresharper_002Dhost_003FSourcesCache_003F62342c1a9fec2bdca5aec8f5f3b2236e216b0724a34d3c1b75d2acbb16869_003FWebAssemblyHostBuilder_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/CodeInspection/Highlighting/SweaWarningsMode/@EntryValue">ShowAndRun</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ccc30526_002D473f_002D4e65_002D955f_002D98c2adc369ce/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="NewFilter_CreatesSingularFilter" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::6B012888-145D-47E7-857B-7D5E857A4B3D::net10.0::XivApiTests.XivApi.XivApiServiceTests.NewRequest_BuildsSearchRequestCorrectly&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	
+	
+	
+	
 	
 	
 	
