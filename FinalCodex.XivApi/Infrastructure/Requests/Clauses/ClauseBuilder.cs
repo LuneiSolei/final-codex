@@ -25,6 +25,8 @@ public class ClauseBuilder : IInitialClauseBuilderStep, IConditionStep,
     private ClauseConditionals _conditionals;
     private ClauseOperators _operator;
     private string _value = string.Empty;
+    
+    internal ClauseBuilder() {}
 
     // WhereField Step
     public IConditionStep WhereField(string name)
