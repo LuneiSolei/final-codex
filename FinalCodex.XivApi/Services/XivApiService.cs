@@ -10,13 +10,7 @@ public class XivApiService(IOptions<XivApiOptions> opts, HttpClient _client)
 {
     private readonly XivApiOptions _opts = opts.Value;
 
-    public RequestBuilder NewRequestBuilder()
-    {
-        return new RequestBuilder(_opts);
-    }
+    public RequestBuilder NewRequestBuilder() => new (_opts);
 
-    public static IInitialClauseBuilderStep NewClause()
-    {
-        return new ClauseBuilder();
-    }
+    public static IInitialClauseBuilderStep NewClause() => new ClauseBuilder();
 }
