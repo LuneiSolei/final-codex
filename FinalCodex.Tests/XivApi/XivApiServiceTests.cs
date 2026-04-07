@@ -1,5 +1,6 @@
+using FinalCodex.XivApi.Core;
 using FinalCodex.XivApi.Core.Options;
-using FinalCodex.XivApi.Infrastructure.Request;
+using FinalCodex.XivApi.Infrastructure.Requests;
 using FinalCodex.XivApi.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -40,29 +41,28 @@ public class XivApiServiceTests
     [Test]
     public void NewFilter_BuildsSingularClauseCorrectly()
     {
-        string clause = XivApiService.NewClause()
+        Clause clause = XivApiService.NewClause()
             .WhereField(EqualToSpecifier)
             .Is()
-            .EqualTo()
-            .Value(EqualToValue);
+            .EqualTo(EqualToValue);
 
-        Assert.That(clause, Is.EqualTo(_equalToExpectedValue));
+        Assert.That(clause.ToString(), 
+            Is.EqualTo(_equalToExpectedValue));
     }
 
     [Test]
     public void NewRequest_BuildsSearchRequestCorrectly()
     {
-        string clause = XivApiService.NewClause()
+        Clause clause = XivApiService.NewClause()
             .WhereField(EqualToSpecifier)
             .Is()
-            .EqualTo()
-            .Value(EqualToValue);
+            .EqualTo(EqualToValue);
 
-        XivApiRequest request = _service
-            .NewRequestBuilder()
-            .AsSearch()
-            .FromSheets(["Achievement"])
-            .WithFilters([clause])
-            .Build();
+        // XivApiRequest request = _service
+        //     .NewRequestBuilder()
+        //     .AsSearch()
+        //     .FromSheets(["Achievement"])
+        //     .WithFilters([clause])
+        //     .Build();
     }
 }

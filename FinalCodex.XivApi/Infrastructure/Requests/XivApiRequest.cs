@@ -1,6 +1,6 @@
 using FinalCodex.XivApi.Core.Options;
 
-namespace FinalCodex.XivApi.Infrastructure.Request;
+namespace FinalCodex.XivApi.Infrastructure.Requests;
 
 public abstract class XivApiRequest
 {

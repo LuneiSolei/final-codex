@@ -1,4 +1,4 @@
-namespace FinalCodex.XivApi.Infrastructure.Request;
+namespace FinalCodex.XivApi.Infrastructure.Requests;
 
 // public static class FilterListExtensions
 // {

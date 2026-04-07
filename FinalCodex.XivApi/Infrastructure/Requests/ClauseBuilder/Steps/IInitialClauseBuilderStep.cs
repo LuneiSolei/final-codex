@@ -1,4 +1,4 @@
-namespace FinalCodex.XivApi.Infrastructure.Request.Clause.Steps;
+namespace FinalCodex.XivApi.Infrastructure.Requests.ClauseBuilder.Steps;
 
 public interface IInitialClauseBuilderStep
 {

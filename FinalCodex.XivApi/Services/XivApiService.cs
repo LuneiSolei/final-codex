@@ -1,7 +1,7 @@
 using FinalCodex.XivApi.Core.Options;
-using FinalCodex.XivApi.Infrastructure.Request;
-using FinalCodex.XivApi.Infrastructure.Request.Clause;
-using FinalCodex.XivApi.Infrastructure.Request.Clause.Steps;
+using FinalCodex.XivApi.Infrastructure.Requests;
+using FinalCodex.XivApi.Infrastructure.Requests.ClauseBuilder;
+using FinalCodex.XivApi.Infrastructure.Requests.ClauseBuilder.Steps;
 using Microsoft.Extensions.Options;
 
 namespace FinalCodex.XivApi.Services;
