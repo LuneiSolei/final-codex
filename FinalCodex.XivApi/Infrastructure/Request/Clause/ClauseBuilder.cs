@@ -149,18 +149,12 @@ public class ClauseBuilder : IInitialClauseBuilderStep, IConditionStep, IOperato
         // Create common base
         string result = CreateBase();
 
-        // Add value
-        if (_strValue is not null)
+        result += (_strValue, _boolValue) switch
         {
-            result += _strValue.Replace(" ", "+");
-        } else if (_boolValue is not null)
-        {
-            result += _boolValue;
-        }
-        else
-        {
-            result += string.Empty;
-        }
+            (not null, _) => _strValue.Replace(' ', '+'),
+            (null, not null) => _boolValue.ToString(),
+            _ => string.Empty
+        };
         
         // Encode result
 
