@@ -20,29 +20,3 @@ public class XivApiService(IOptions<XivApiOptions> opts, HttpClient _client)
         return new ClauseBuilder();
     }
 }
-
-/*
- * XivApiService.CreateSearchRequest(_opts) <- Returns a RequestBuilder()
- * internal abstract class RequestBuilder(Options opts) { <- Inherited by, for example, SearchSheet class
- *      SubQuery? SubQuery <- UrlEncoded XIV API query clauses.
- * 
- *      public override string ToString() {
- *          
- *      }
- * }
- *
- * internal sealed class ClauseBuilder {
- *      List<Clause> _clauses = [];
- *      public SubQuery Add(Clause clause) {
- *          _clauses.Add(clause)
- *          return this;
- *      }
- * }
- *
- * public sealed class SearchSheet(Options opts) : RequestBuilder(Options opts) {
- *      public override string ToString() {
- *          return $"{opts.Scheme}://{opts.BaseUrl}/{opts.Endpoints.Search}" +
- *                 $"?{SubQuery}";
- *      }
- * }
- */

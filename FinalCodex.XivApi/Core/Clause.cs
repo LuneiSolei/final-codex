@@ -10,4 +10,4 @@ public record Clause
     {
         return $"{Specifier}{Operator}{Value}";
     }
-};
+}
