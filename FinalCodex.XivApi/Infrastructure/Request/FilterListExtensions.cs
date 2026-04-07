@@ -1,5 +1,3 @@
-using FinalCodex.XivApi.Infrastructure.Request.Clause;
-
 namespace FinalCodex.XivApi.Infrastructure.Request;
 
 // public static class FilterListExtensions

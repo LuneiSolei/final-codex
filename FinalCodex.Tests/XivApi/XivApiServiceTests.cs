@@ -1,7 +1,5 @@
 using FinalCodex.XivApi.Core.Options;
-using FinalCodex.XivApi.Infrastructure;
 using FinalCodex.XivApi.Infrastructure.Request;
-using FinalCodex.XivApi.Infrastructure.Request.Clause;
 using FinalCodex.XivApi.Services;
 using Microsoft.Extensions.DependencyInjection;
 
