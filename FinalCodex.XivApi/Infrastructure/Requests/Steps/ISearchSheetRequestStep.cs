@@ -21,9 +21,11 @@ public interface ISearchSheetRequestStep
     ISearchSheetRequestStep WithSchema(string schemaSpecifier);
     ISearchSheetRequestStep WithFields(List<string> fields);
     ISearchSheetRequestStep WithTransient(string transient);
-    
+
+    string Build();
+
     /*
      * TODO: Define SchemaLanguage, SchemaSpecifier, and FilterString as used
      * by XIV API
-    */
+     */
 }

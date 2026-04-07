@@ -9,7 +9,7 @@ namespace FinalCodex.XivApi.Infrastructure.Requests;
 public sealed class SearchSheetRequest : XivApiRequest, ISearchSheetRequestStep
 {
     private List<string>? _sheets;
-    private List<Clause>? _subQueryClauses;
+    private List<Clause>? _queryClauses;
     private string? _cursor;
     private uint? _limit;
     
@@ -23,6 +23,12 @@ public sealed class SearchSheetRequest : XivApiRequest, ISearchSheetRequestStep
         return this;
     }
     
+    /// <summary>
+    /// List of names of Excel sheets that the query should be run against.
+    /// </summary>
+    /// <remarks>At least one must be specified if not querying a cursor.</remarks>
+    /// <param name="sheets"></param>
+    /// <seealso cref="WithSheet"/>
     public ISearchSheetRequestStep WithSheets(List<string> sheets)
     {
         // XIV API requires capitalized sheet names
@@ -41,16 +47,16 @@ public sealed class SearchSheetRequest : XivApiRequest, ISearchSheetRequestStep
     // Query
     public ISearchSheetRequestStep AddQueryClause(Clause clause)
     {
-        _subQueryClauses ??= [];
-        _subQueryClauses.Add(clause);
+        _queryClauses ??= [];
+        _queryClauses.Add(clause);
         
         return this;
     }
 
     public ISearchSheetRequestStep AddQueryClauses(List<Clause> clauses)
     {
-        _subQueryClauses ??= [];
-        _subQueryClauses.AddRange(clauses);
+        _queryClauses ??= [];
+        _queryClauses.AddRange(clauses);
         
         return this;
     }
@@ -63,6 +69,13 @@ public sealed class SearchSheetRequest : XivApiRequest, ISearchSheetRequestStep
         return this;
     }
 
+    public ISearchSheetRequestStep WithLanguage(SchemaLanguage language)
+    {
+        base.Language = language;
+        
+        return this;
+    }
+    
     public ISearchSheetRequestStep WithCursor(string? cursor)
     {
         _cursor = cursor;
@@ -73,13 +86,6 @@ public sealed class SearchSheetRequest : XivApiRequest, ISearchSheetRequestStep
     public ISearchSheetRequestStep WithLimit(uint limit)
     {
         _limit = limit;
-
-        return this;
-    }
-
-    public ISearchSheetRequestStep WithLanguage(SchemaLanguage lang)
-    {
-        base.Language = lang;
 
         return this;
     }
@@ -97,5 +103,36 @@ public sealed class SearchSheetRequest : XivApiRequest, ISearchSheetRequestStep
     public ISearchSheetRequestStep WithTransient(string transient)
     {
         throw new NotImplementedException();
+    }
+
+    public string Build()
+    {
+        string query = string.Empty;
+        
+        if (_sheets is not null)
+        {
+            query += BuildSheetsParam();
+        }
+        else
+        {
+            query += BuildCursor();
+        }
+        
+        string url = $"{BaseUrl}{Options.Endpoints.Search}?{query}";
+
+        return url;
+    }
+
+    private string BuildSheetsParam() =>
+        _sheets is null ? string.Empty : string.Join(",", _sheets);
+
+    private string BuildSubQuery()
+    {
+        
+    }
+
+    private string BuildCursor()
+    {
+        
     }
 }
