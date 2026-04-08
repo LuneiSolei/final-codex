@@ -1,6 +1,5 @@
 using FinalCodex.XivApi.Core;
 using FinalCodex.XivApi.Core.Options;
-using FinalCodex.XivApi.Infrastructure.Requests;
 using FinalCodex.XivApi.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,12 +7,26 @@ namespace XivApiTests.XivApi;
 
 public class XivApiServiceTests
 {
-    // Configurable Variables
+    // Equal To (string) Clause Test:
     private const string EqualToSpecifier = "Name";
     private const string EqualToValue = "Tank You, Paladin I";
+    private const string EqualToExpectedValue = 
+        "Name=\"Tank+You%2c+Paladin+I\"";
     private const string EqualToSheet = "Achievement";
-    private readonly string _equalToExpectedValue = 
-        $"{EqualToSpecifier}={EqualToValue.Replace(" ", "+")}";
+    
+    // Partially Equal To (string) Clause Test:
+    private const string PartiallyEqualToSpecifier = "Name";
+    private const string PartiallyEqualToValue = "Tank You, Paladin";
+    private const string PartiallyEqualToExpectedValue =
+        "Name~\"Tank+You%2c+Paladin\"";
+    private const string PartiallyEqualToSheet = "Achievement";
+    
+    // Greater Than (string) Clause Test:
+    private const string GreaterThanSpecifier = "SomeField";
+    private const string GreaterThanValue = "5";
+    private const string GreaterThanExpectedValue =
+        "SomeField>\"5\"";
+    // TODO: Double check that strings are converted to ints in the actual API
     
     // Storage Variables
     private readonly IServiceCollection _serviceCollection = new ServiceCollection();
@@ -39,7 +52,7 @@ public class XivApiServiceTests
     }
 
     [Test]
-    public void NewFilter_BuildsSingularClauseCorrectly()
+    public void NewClause_StringEqualTo_BuildsCorrectly()
     {
         Clause clause = XivApiService.NewClause()
             .WhereField(EqualToSpecifier)
@@ -47,11 +60,35 @@ public class XivApiServiceTests
             .EqualTo(EqualToValue);
 
         Assert.That(clause.ToString(), 
-            Is.EqualTo(_equalToExpectedValue));
+            Is.EqualTo(EqualToExpectedValue));
     }
 
     [Test]
-    public void NewRequest_BuildsSearchRequestCorrectly()
+    public void NewClause_StringPartiallyEqualTo_BuildsCorrectly()
+    {
+        Clause clause = XivApiService.NewClause()
+            .WhereField(PartiallyEqualToSpecifier)
+            .Is()
+            .PartiallyEqualTo(PartiallyEqualToValue);
+
+        Assert.That(clause.ToString(), 
+            Is.EqualTo(PartiallyEqualToExpectedValue));
+    }
+
+    [Test]
+    public void NewClause_StringGreaterThan_BuildsCorrectly()
+    {
+        Clause clause = XivApiService.NewClause()
+            .WhereField(GreaterThanSpecifier)
+            .Is()
+            .PartiallyEqualTo(GreaterThanValue);
+        
+        Assert.That(clause.ToString(),
+            Is.EqualTo(GreaterThanExpectedValue));
+    }
+    
+    [Test]
+    public void NewRequest_Search_BuildsCorrectly()
     {
         Clause clause = XivApiService.NewClause()
             .WhereField(EqualToSpecifier)
