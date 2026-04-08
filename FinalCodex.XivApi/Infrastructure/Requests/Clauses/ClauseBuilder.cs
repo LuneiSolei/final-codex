@@ -1,4 +1,5 @@
 using System.Numerics;
+using System.Web;
 using FinalCodex.XivApi.Core;
 using FinalCodex.XivApi.Core.Enums;
 using FinalCodex.XivApi.Infrastructure.Requests.Clauses.Steps;
@@ -9,14 +10,20 @@ namespace FinalCodex.XivApi.Infrastructure.Requests.Clauses;
 /// Builds the specific query parameter used by XIV API in the url string.
 /// This does <b>NOT</b> represent the actual query of the url. This query
 /// string contains an ordered list of clauses and parameters, in which both
-/// have operators, joined by an ampersand (&).
+/// have operators, joined by an ampersand (&amp;).
 /// </summary>
 /// <remarks>
-/// <b>Parameter (param)</b> - Single key-value pair.
-/// <b>Clause</b> - Logical grouping/condition built from one or more
-/// parameters.
-/// <b>Operator (op)</b> - Symbol representing a specific operation
-/// (=, ~, +, -, etc.)
+///     <para>
+///         <b>Parameter (param)</b> - Single key-value pair.
+///     </para>
+///     <para>
+///         <b>Clause</b> - Logical grouping/condition built from one or more
+///         parameters.
+///     </para>
+///     <para>
+///         <b>Operator (op)</b> - Symbol representing a specific operation
+///         (=, ~, +, -, etc.)
+///     </para>
 /// </remarks>
 public class ClauseBuilder : IInitialClauseBuilderStep, IConditionStep,
     IOperatorStep 
@@ -124,13 +131,9 @@ public class ClauseBuilder : IInitialClauseBuilderStep, IConditionStep,
         clause.Specifier = specifier;
     }
 
-    private void AddClauseOperator(Clause clause)
-    {
+    private void AddClauseOperator(Clause clause) => 
         clause.Operator = Utilities.ToOperatorSign(_operator);
-    }
 
-    private void AddClauseValue(Clause clause)
-    {
-        clause.Value = _value;
-    }
+    private void AddClauseValue(Clause clause) => 
+        clause.Value = $"\"{HttpUtility.UrlEncode(_value)}\"";
 }

@@ -9,7 +9,7 @@ namespace FinalCodex.XivApi.Infrastructure.Requests;
 public sealed class SearchSheetRequest : XivApiRequest, ISearchSheetRequestStep
 {
     private List<string>? _sheets;
-    private List<Clause>? _queryClauses;
+    private QueryString? _queryString;
     private string? _cursor;
     private uint? _limit;
     
@@ -49,25 +49,36 @@ public sealed class SearchSheetRequest : XivApiRequest, ISearchSheetRequestStep
         
         return this;
     }
-    
-    // Query
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="clause"></param>
-    /// <returns></returns>
-    public ISearchSheetRequestStep AddQueryClause(Clause clause)
+
+    public ISearchSheetRequestStep WithClause(Clause clause)
     {
-        _queryClauses ??= [];
-        _queryClauses.Add(clause);
+        _queryString ??= new QueryString();
+        _queryString.AddClause(clause);
+        
+        return this;
+    }
+    
+    public ISearchSheetRequestStep WithClauses(IEnumerable<Clause> clauses)
+    {
+        _queryString ??= new QueryString();
+        _queryString.AddClauses(clauses);
         
         return this;
     }
 
-    public ISearchSheetRequestStep AddQueryClauses(List<Clause> clauses)
+    public ISearchSheetRequestStep WithClauseGroup(ClauseGroup group)
     {
-        _queryClauses ??= [];
-        _queryClauses.AddRange(clauses);
+        _queryString ??= new QueryString();
+        _queryString.AddClauseGroup(group);
+        
+        return this;
+    }
+
+    public ISearchSheetRequestStep WithClauseGroups(
+        IEnumerable<ClauseGroup> groups)
+    {
+        _queryString ??= new QueryString();
+        _queryString.AddClauseGroups(groups);
         
         return this;
     }
@@ -139,11 +150,11 @@ public sealed class SearchSheetRequest : XivApiRequest, ISearchSheetRequestStep
 
     private string BuildSubQuery()
     {
-        
+        return "";
     }
 
     private string BuildCursor()
     {
-        
+        return "";
     }
 }

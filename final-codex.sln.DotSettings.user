@@ -6,11 +6,12 @@
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AUriBuilder_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002Ejbdevcontainer_003Fconfig_003FJetBrains_003FRider2025_002E3_003Fresharper_002Dhost_003FSourcesCache_003F10821a7c6456595b62433c59889dfe462fca7a3fa6fa981c1dcd3204ff3c210_003FUriBuilder_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AWebAssemblyHostBuilder_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003F_002Ejbdevcontainer_003Fconfig_003FJetBrains_003FRider2026_002E1_003Fresharper_002Dhost_003FSourcesCache_003F62342c1a9fec2bdca5aec8f5f3b2236e216b0724a34d3c1b75d2acbb16869_003FWebAssemblyHostBuilder_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:String x:Key="/Default/CodeInspection/Highlighting/SweaWarningsMode/@EntryValue">ShowAndRun</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ccc30526_002D473f_002D4e65_002D955f_002D98c2adc369ce/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="NewFilter_CreatesSingularFilter" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b8590497_002D1aa9_002D4227_002Db6ad_002D2efb360c27f6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="XivApiServiceTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::6B012888-145D-47E7-857B-7D5E857A4B3D::net10.0::XivApiTests.XivApi.XivApiServiceTests.NewRequest_BuildsSearchRequestCorrectly&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::6B012888-145D-47E7-857B-7D5E857A4B3D::net10.0::XivApiTests.XivApi.XivApiServiceTests&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
+	
 	
 	
 	

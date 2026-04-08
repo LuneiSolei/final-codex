@@ -1,17 +1,13 @@
 using FinalCodex.XivApi.Core.Enums;
 
-namespace FinalCodex.XivApi.Core.Options;
+namespace FinalCodex.XivApi.Core;
 
-public class ClauseGroup
+public class ClauseGroup(ClauseGroupOperator? groupOperator, List<Clause>? clauses)
 {
-    public List<Clause> Clauses { get; } = [];
-    public ClauseGroupOperator Operator { get; }
-    
-    public ClauseGroup(ClauseGroupOperator? groupOperator)
-    {
-        Operator = groupOperator ?? ClauseGroupOperator.Or;
-    }
-    
+    private List<Clause> Clauses { get; } = clauses ?? [];
+    private ClauseGroupOperator Operator { get; } = 
+        groupOperator ?? ClauseGroupOperator.Or;
+
     public override string ToString()
     {
         return $"{GenerateOperator()}({string.Join(' ', Clauses)})";

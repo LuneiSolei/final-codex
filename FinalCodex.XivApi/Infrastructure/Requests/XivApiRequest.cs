@@ -1,4 +1,3 @@
-using FinalCodex.XivApi.Core;
 using FinalCodex.XivApi.Core.Enums;
 using FinalCodex.XivApi.Core.Options;
 
@@ -11,7 +10,6 @@ public abstract class XivApiRequest
     protected string? Version;
     protected SchemaLanguage? Language;
     protected string? Schema;
-    protected List<Clause> QueryClauses = [];
     
     internal XivApiRequest(XivApiOptions opts)
     {
